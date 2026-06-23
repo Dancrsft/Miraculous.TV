@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraculous TV - Temporada 1</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #343a40; color: white; margin: 0; padding: 0; }
+        header { background-color: #212529; padding: 20px; text-align: center; position: relative; border-bottom: 2px solid #e60026; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        header h1 { margin: 0; font-size: 28px; }
+        header p { margin: 5px 0 0 0; font-size: 16px; opacity: 0.9; }
+        .btn-volver { position: absolute; top: 25px; left: 20px; color: white; text-decoration: none; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 8px 15px; border-radius: 20px; font-size: 14px; }
+        .btn-volver:hover { background-color: rgba(0,0,0,0.5); }
+        .contenedor-reproductor { display: flex; max-width: 1250px; margin: 30px auto; gap: 20px; padding: 0 20px; flex-wrap: wrap; }
+        .pantalla-video { flex: 2; min-width: 350px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .pantalla-video h2 { margin: 20px 0 10px 0; font-size: 24px; color: #fff; }
+        .pantalla-video p { color: #adb5bd; line-height: 1.5; font-size: 15px; }
+        .lista-capitulos { flex: 1; min-width: 300px; background-color: #212529; border-radius: 12px; padding: 15px; max-height: 580px; overflow-y: auto; }
+        .lista-capitulos h3 { margin-top: 0; border-bottom: 1px solid #495057; padding-bottom: 10px; font-size: 18px; }
+        .capitulo-item { display: flex; gap: 15px; padding: 10px; border-radius: 8px; margin-bottom: 10px; cursor: pointer; transition: background-color 0.2s; }
+        .capitulo-item:hover { background-color: #495057; }
+        .capitulo-item.activo { background-color: #e60026; }
+        .capitulo-item.activo h4 { color: #fff; }
+        .capitulo-item img { width: 120px; height: 70px; object-fit: cover; border-radius: 6px; }
+        .capitulo-info h4 { margin: 0 0 5px 0; font-size: 14px; color: #fff; }
+        .capitulo-info p { margin: 0; font-size: 12px; color: #ced4da; }
+        .lista-capitulos::-webkit-scrollbar { width: 6px; }
+        .lista-capitulos::-webkit-scrollbar-thumb { background: #495057; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<header>
+  <h1>Miraculous TV</h1>
+  <p>Temporada 1 — Capítulos</p>
+  <a href="#" class="btn-volver" target="_parent">← Volver al Inicio</a>
+</header>
+
+<main class="contenedor-reproductor">
+  <section class="pantalla-video">
+    <div class="video-container">
+      <iframe id="reproductor-principal" src="https://www.youtube.com/embed/Y0srojpZmsU" allowfullscreen></iframe>
+    </div>
+    <h2 id="titulo-video">Capítulo 1: Clima Tempestuoso</h2>
+    <p id="sinopsis-video">Tras perder un concurso para ser la chica del clima en televisión, Aurora es akumatizada por Hawk Moth y congela a París.</p>
+  </section>
+
+  <section class="lista-capitulos">
+    <h3>Episodios</h3>
+    
+    <div class="capitulo-item activo" data-video="https://www.youtube.com/embed/Y0srojpZmsU" data-titulo="Capítulo 1: Clima Tempestuoso" data-sinopsis="Tras perder un concurso para ser la chica del clima en televisión, Aurora es akumatizada por Hawk Moth y congela a París.">
+      <img src="https://picsum.photos/120/70?random=11" alt="E1">
+      <div class="capitulo-info"><h4>1. Clima Tempestuoso</h4><p>22 min</p></div>
+    </div>
+
+    <div class="capitulo-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-titulo="Capítulo 2: Burbujeo" data-sinopsis="Nino es akumatizada tras enojarse con el papá de Adrien.">
+      <img src="https://picsum.photos/120/70?random=12" alt="E2">
+      <div class="capitulo-info"><h4>2. Burbujeo</h4><p>22 min</p></div>
+    </div>
+
+    <div class="capitulo-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-titulo="Capítulo 3: Copi-Gato" data-sinopsis="Un escultor celoso se transforma en un clon exacto de Cat Noir.">
+      <img src="https://picsum.photos/120/70?random=13" alt="E3">
+      <div class="capitulo-info"><h4>3. Copi-Gato</h4><p>22 min</p></div>
+    </div>
+    
+    <div class="capitulo-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-titulo="Capítulo 4: Quiebratiempo" data-sinopsis="Alix regresa en el tiempo para salvar su reloj robando energía ajena.">
+      <img src="https://picsum.photos/120/70?random=14" alt="E4">
+      <div class="capitulo-info"><h4>4. Quiebratiempo</h4><p>22 min</p></div>
+    </div>
+
+    <div class="capitulo-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-titulo="Capítulo 5: Faraón" data-sinopsis="El hermano de Alix quiere sacrificar a Alya para revivir a una antigua diosa.">
+      <img src="https://picsum.photos/120/70?random=15" alt="E5">
+      <div class="capitulo-info"><h4>5. Faraón</h4><p>22 min</p></div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const reproductor = document.getElementById('reproductor-principal');
+  const tituloVideo = document.getElementById('titulo-video');
+  const sinopsisVideo = document.getElementById('sinopsis-video');
+  const capitulos = document.querySelectorAll('.capitulo-item');
+
+  capitulos.forEach(capitulo => {
+    capitulo.addEventListener('click', () => {
+      document.querySelector('.capitulo-item.activo').classList.remove('activo');
+      capitulo.classList.add('activo');
+      reproductor.src = capitulo.getAttribute('data-video');
+      tituloVideo.textContent = capitulo.getAttribute('data-titulo');
+      sinopsisVideo.textContent = capitulo.getAttribute('data-sinopsis');
+    });
+  });
+</script>
+</body>
+</html>
