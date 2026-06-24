@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraculous TV - Inicio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #141414;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e60026;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .header-derecha {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-creditos {
+            background-color: transparent;
+            color: white;
+            border: 1px solid #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-creditos:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .idioma-select {
+            background-color: #1f1f1f;
+            color: white;
+            border: 1px solid #e60026;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .idioma-select:hover {
+            background-color: #e60026;
+        }
+
+        .main-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 0 20px;
+            transition: filter 0.3s ease;
+        }
+
+        .main-container h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            text-align: left;
+            border-left: 4px solid #e60026;
+            padding-left: 10px;
+        }
+
+        /* Título de especiales con borde verde a la izquierda */
+        .main-container h2#tituloEspeciales {
+            border-left: 4px solid #e60000;
+        }
+
+        .seccion-cuadricula {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta-link {
+            background-color: #1f1f1f;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 35px 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .tarjeta-link:hover {
+            border-color: #e60026;
+            transform: translateY(-5px);
+            background-color: #262626;
+            box-shadow: 0 6px 15px rgba(230, 0, 38, 0.3);
+        }
+
+        .tarjeta-s6 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+                              url('portada-s6.jpg');
+            background-size: cover;
+            background-position: center;
+            border-color: #e60026;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .tarjeta-s6:hover {
+            box-shadow: 0 6px 20px rgba(230, 0, 38, 0.6);
+            border-color: #ff1a40;
+            background-image: linear-gradient(rgba(230, 0, 38, 0.2), rgba(0, 0, 0, 0.6)), 
+                              url('portada-s6.jpg');
+        }
+
+        /* APARTADO DE ESPECIALES EN COLOR VERDE INICIAL */
+        .especial {
+            border-color: #e60000;
+        }
+
+        /* CAMBIOS INDIVIDUALES CON HOVER COLORIDO */
+        
+        /* Nueva York - Azul */
+        #espNY:hover {
+            border-color: #00b0ff;
+            box-shadow: 0 6px 15px rgba(0, 176, 255, 0.5);
+            background-color: rgba(0, 176, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Shanghái - Naranja */
+        #espSH:hover {
+            border-color: #ff6d00;
+            box-shadow: 0 6px 15px rgba(255, 109, 0, 0.5);
+            background-color: rgba(255, 109, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* París - Morado */
+        #espPR:hover {
+            border-color: #aa00ff;
+            box-shadow: 0 6px 15px rgba(170, 0, 255, 0.5);
+            background-color: rgba(170, 0, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Londres - Amarillo */
+        #espLN:hover {
+            border-color: #ffd600;
+            box-shadow: 0 6px 15px rgba(255, 214, 0, 0.5);
+            background-color: rgba(255, 214, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Tokio - Rojo Fuerte */
+        #espTK:hover {
+            border-color: #ff0000;
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+            background-color: rgba(255, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .modal-fondo {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .difuminar-atras {
+            filter: blur(4px);
+        }
+
+        .modal-contenido {
+            background-color: rgba(31, 31, 31, 0.85);
+            border: 2px solid #e60026;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(230, 0, 38, 0.3);
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-cerrar:hover {
+            color: #e60026;
+        }
+
+        .modal-contenido h3 {
+            color: #e60026;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .modal-contenido p {
+            color: #cccccc;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Miraculous TV</h1>
+        <div class="header-derecha">
+            <button class="btn-creditos" id="btnCreditos" onclick="abrirModal()">Créditos</button>
+            <select class="idioma-select" id="selectorIdioma" onchange="cambiarIdioma()">
+                <option value="es">Español Latino</option>
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="main-container" id="contenedorPrincipal">
+        
+        <h2>Temporadas Disponibles</h2>
+        <div class="seccion-cuadricula">
+            <a href="#" class="tarjeta-link" id="t1">Temporada 1</a>
+            <a href="#" class="tarjeta-link" id="t2">Temporada 2</a>
+            <a href="#" class="tarjeta-link" id="t3">Temporada 3</a>
+            <a href="#" class="tarjeta-link" id="t4">Temporada 4</a>
+            <a href="temporada5.html" class="tarjeta-link" id="t5">Temporada 5</a>
+            <a href="temporada6.html" class="tarjeta-link tarjeta-s6" id="t6">Temporada 6</a>
+        </div>
+
+        <!-- SECCIÓN DE ESPECIALES -->
+        <h2 id="tituloEspeciales">Especiales del Mundo</h2>
+        <div class="seccion-cuadricula">
+            <a href="#" class="tarjeta-link especial" id="espNY">Nueva York</a>
+            <a href="#" class="tarjeta-link especial" id="espSH">Shanghái</a>
+            <a href="#" class="tarjeta-link especial" id="espPR">París</a>
+            <a href="#" class="tarjeta-link especial" id="espLN">Londres</a>
+            <a href="#" class="tarjeta-link especial" id="espTK">Tokio</a>
+        </div>
+
+    </div>
+
+    <div class="modal-fondo" id="modalCreditos">
+        <div class="modal-contenido">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <h3 id="modalTitulo">Créditos de la Plataforma</h3>
+            <p id="modalTexto">
+                <strong>Desarrollador Principal:</strong> Bug<br>
+                <strong>Fuente de episodios:</strong> episodes.rabbitnoirs6<br><br>
+                Plataforma local interactiva de streaming creada para organizar y disfrutar de los episodios y especiales globales de <em>Miraculous: Tales of Ladybug & Cat Noir</em>. ¡Gracias por usar Miraculous TV!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const traducciones = {
+            es: {
+                titulo: "Temporadas Disponibles", especiales: "Especiales del Mundo",
+                t1: "Temporada 1", t2: "Temporada 2", t3: "Temporada 3", t4: "Temporada 4", t5: "Temporada 5", t6: "Temporada 6",
+                ny: "Nueva York", sh: "Shanghái", pr: "París", ln: "Londres", tk: "Tokio",
+                btnCred: "Créditos", modTit: "Créditos de la Plataforma",
+                modTxt: "<strong>Desarrollador Principal:</strong> Bug<br><strong>Fuente de episodios:</strong> episodes.rabbitnoirs6<br><br>Plataforma local interactiva de streaming creada para organizar y disfrutar de los episodios y especiales globales de <em>Miraculous: Tales of Ladybug & Cat Noir</em>. ¡Gracias por usar Miraculous TV!"
+            },
+            en: {
+                titulo: "Available Seasons", especiales: "World Specials",
+                t1: "Season 1", t2: "Season 2", t3: "Season 3", t4: "Season 4", t5: "Season 5", t6: "Season 6",
+                ny: "New York", sh: "Shanghai", pr: "Paris", ln: "London", tk: "Tokyo",
+                btnCred: "Credits", modTit: "Platform Credits",
+                modTxt: "<strong>Lead Developer:</strong> Bug<br><strong>Episode Source:</strong> episodes.rabbitnoirs6<br><br>Interactive local streaming platform created to organize and enjoy the episodes and global specials of <em>Miraculous: Tales of Ladybug & Cat Noir</em>. Thanks for using Miraculous TV!"
+            },
+            pt: {
+                titulo: "Temporadas Disponíveis", especiales: "Especiais del Mundo",
+                t1: "Temporada 1", t2: "Temporada 2", t3: "Temporada 3", t4: "Temporada 4", t5: "Temporada 5", t6: "Temporada 6",
+                ny: "Nova Iorque", sh: "Xangai", pr: "Paris", ln: "Londres", tk: "Tóquio",
+                btnCred: "Créditos", modTit: "Créditos da Plataforma",
+                modTxt: "<strong>Desenvolvedor Principal:</strong> Bug<br><strong>Fonte dos episódios:</strong> episodes.rabbitnoirs6<br><br>Plataforma local interativa de streaming criada para organizar e curtir os episódios e especiais globais de <em>Miraculous: Tales of Ladybug & Cat Noir</em>. Obrigado por usar Miraculous TV!"
+            }
+        };
+
+        function cambiarIdioma() {
+            const idiomaSeleccionado = document.getElementById("selectorIdioma").value;
+            const trad = traducciones[idiomaSeleccionado];
+            
+            document.getElementById("contenedorPrincipal").getElementsByTagName("h2")[0].innerText = trad.titulo;
+            document.getElementById("tituloEspeciales").innerText = trad.especiales;
+            
+            document.getElementById("t1").innerText = trad.t1;
+            document.getElementById("t2").innerText = trad.t2;
+            document.getElementById("t3").innerText = trad.t3;
+            document.getElementById("t4").innerText = trad.t4;
+            document.getElementById("t5").innerText = trad.t5;
+            document.getElementById("t6").innerText = trad.t6;
+
+            document.getElementById("espNY").innerText = trad.ny;
+            document.getElementById("espSH").innerText = trad.sh;
+            document.getElementById("espPR").innerText = trad.pr;
+            document.getElementById("espLN").innerText = trad.ln;
+            document.getElementById("espTK").innerText = trad.tk;
+
+            document.getElementById("btnCreditos").innerText = trad.btnCred;
+            document.getElementById("modalTitulo").innerText = trad.modTit;
+            document.getElementById("modalTexto").innerHTML = trad.modTxt;
+        }
+
+        function abrirModal() {
+            document.getElementById("modalCreditos").style.display = "flex";
+            document.getElementById("contenedorPrincipal").classList.add("difuminar-atras");
+        }
+
+        function cerrarModal() {
+            document.getElementById("modalCreditos").style.display = "none";
+            document.getElementById("contenedorPrincipal").classList.remove("difuminar-atras");
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("modalCreditos");
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById("contenedorPrincipal").classList.remove("difuminar-atras");
+            }
+        }
+    </script>
+</body>
+</html>
